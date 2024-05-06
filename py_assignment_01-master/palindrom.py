@@ -1,17 +1,22 @@
-# pylint: disable=C0114
+import sys
 
 def palindrom(text: str) -> bool:
-    """ 
-    Czecks if given string is a palidrom.
+    tekst1 = ''.join(text.lower().split())
 
-    Parameters
-    ----------
-    text: str
-        The input string
+    return tekst1 == tekst1[::-1]
 
-    Returns
-    -------
-    bool
-        True if text is a palidrom
-    """
-    pass
+def main():
+    if len(sys.argv) != 2:
+        return 1
+
+    text = sys.argv[1]
+
+    if palindrom(text):
+        print("jest palindromem.")
+        return 0
+    else:
+        print("nie jest palindromem.")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())
